@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #4977eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.app-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 36px 0 rgba(41, 85, 199, 0.07);
+  padding: 2.2em 2em;
+  text-align: center;
+  width: 96vw;
+  max-width: 520px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Tahoma";
+  color: #0c0c0c;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.01em;
+}
+
+.quote-box {
+  background: #f6f8fc;
+  min-height: 96px;
+  margin: 1.2em 0 1em 0;
+  padding: 1.6em 1.6em;
+  border-radius: 20px;
+  overflow-wrap: break-word;
+  line-height: 1.7;
+  box-shadow: 0 6px 28px rgba(190, 208, 236, 0.27), 0 1.5px 0 #dde3ed;
+  border: 1.8px solid #b2c4e3;
+  position: relative;
+}
+
+.quote-text {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.28rem;
+  color: #22305a;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: inline;
+}
+
+.left-quote,
+.right-quote {
+  color: #91a2e8;
+  font-size: 1.7rem;
+  vertical-align: middle;
+  user-select: none;
+  font-family: serif;
+}
+
+.author-text {
+  margin-top: 0.9em;
+  color: #6a7591;
+  font-size: 1.02rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.divider {
+  border: none;
+  border-top: 1.3px solid #eef0f7;
+  margin: 1.1em 0 1em 0;
+}
+
+.actions-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #5e3370;
+  background: #fff;
+  color: #5e3370;
+  font-size: 1.22rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  outline: none;
+  position: relative;
+}
+.icon-btn:hover {
+  transform: translateY(-4px);
+  background: #f5edfa;
+  color: #2b1836;
+  border-color: #2b1836;
+}
+
+.heart-btn {
+  border: 2px solid #010101;
+  color: #db2674;
+}
+.heart-btn.active {
+  background: #ff4b6e;
+  color: #fff;
+  border-color: #ff4b6e;
+}
+
+.new-quote-btn {
+  padding: 0.62em 1.4em;
+  border-radius: 18px;
+  background: #4e7aea;
+  color: #f9f6f6;
+  border: none;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(66, 99, 182, 0.14);
+}
+.new-quote-btn:hover {
+  background: #2e3f86;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.18);
+  align-items: center;
+  justify-content: center;
+}
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-content {
+  background: #fcfcfd;
+  color: #010101;
+  margin: 8% auto;
+  padding: 1.3em;
+  border-radius: 13px;
+  width: 92vw;
+  max-width: 480px;
+  box-shadow: 0 6px 26px rgb(45, 96, 237);
+  position: relative;
+  border: 1px solid #1540cd;
+}
+
+.modal-close {
+  color: #fff;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.favorites-list {
+  margin-top: 1.1rem;
+  max-height: 340px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 6px;
+}
+
+.favorite-item {
+  background: #cfe7ff;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: space-between;
+  font-family: Georgia, serif;
+  color: #122;
+  font-size: 0.98rem;
+}
+
+.favorite-item .fav-text {
+  flex: 1;
+  word-break: break-word;
+}
+
+.favorite-item .fav-meta {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: #3b4a6b;
+  font-style: italic;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #d64545;
+  padding: 6px;
+}
+.delete-btn:hover {
+  color: #ff0000;
+}
+
+@media (max-width: 600px) {
+  .app-card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+  .icon-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.05rem;
+  }
+  .new-quote-btn {
+    padding: 0.5rem 1rem;
+  }
+}

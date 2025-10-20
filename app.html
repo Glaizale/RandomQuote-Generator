@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-card">
+      <h1 class="title">Quote of the Day</h1>
+
+      <div
+        id="quoteBox"
+        class="quote-box"
+        role="region"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-label="Quote display area"
+      >
+        <span class="left-quote">“</span>
+        <span id="quote" class="quote-text">
+          Click New Quote to get a quote.
+        </span>
+        <span class="right-quote">”</span>
+        <div id="author" class="author-text" aria-live="polite"></div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="actions-row">
+        <button
+          id="getQuoteBtn"
+          class="new-quote-btn"
+          type="button"
+          aria-label="Get new quote"
+        >
+          New Quote
+        </button>
+
+        <div class="icon-group">
+          <button
+            id="copy-btn"
+            class="icon-btn"
+            title="Copy this quote"
+            aria-label="Copy quote"
+            type="button"
+          >
+            📋
+          </button>
+
+          <button
+            id="favorite-btn"
+            class="icon-btn heart-btn"
+            title="Add or remove from Favorites"
+            aria-label="Toggle favorite quote"
+            type="button"
+          >
+            <span id="heart-icon">♡</span>
+          </button>
+
+          <button
+            id="show-favorites"
+            class="icon-btn"
+            title="View your Favorite Quotes"
+            aria-label="Show favorites modal"
+            type="button"
+          >
+            ⭐
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="favorites-modal"
+        class="modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div class="modal-content">
+          <button
+            id="close-modal"
+            class="modal-close"
+            aria-label="Close favorites modal"
+            type="button"
+          >
+            ✕
+          </button>
+          <h3 id="modal-title" class="modal-title">Your Favorite Quotes</h3>
+          <div id="favorites-list" class="favorites-list"></div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

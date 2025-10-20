@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Team Innovators Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-blue: #4977eb;
+        --light-blue: #e9f0fd;
+        --navbar-bg: #fff;
+        --navbar-active: #4977eb;
+        --box-bg: #fff;
+        --box-shadow: 0 4px 36px #4977eb13, 0 1.5px 8px #b7ccf710;
+        --border-card: #d4e1fa;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        width: 100vw;
+        font-family: "Montserrat", Arial, sans-serif;
+        color: #243668;
+        background: linear-gradient(115deg, #e9f0fd 0%, #4977eb 100%);
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      body {
+        width: 100vw;
+        min-height: 100vh;
+      }
+      .navbar {
+        position: fixed;
+        top: 38px;
+        right: 54px;
+        z-index: 2000;
+        background: var(--navbar-bg);
+        border-radius: 18px;
+        box-shadow: 0 3px 16px #4977eb22;
+        display: flex;
+        gap: 10px;
+        padding: 7px 22px;
+        align-items: center;
+      }
+      .nav-link {
+        background: none;
+        border: none;
+        color: var(--main-blue);
+        font-size: 1.13em;
+        font-family: "Lora", serif;
+        font-weight: 700;
+        padding: 6px 16px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+        outline: none;
+        text-decoration: none;
+        border: 2px solid transparent;
+        margin: 0 0 0 2px;
+      }
+      .nav-link.active,
+      .nav-link:hover {
+        background: var(--main-blue);
+        color: #fff;
+        border-color: var(--main-blue);
+        transition: 0.2s;
+      }
+      .hero-section {
+        min-height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background: none;
+        position: relative;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+      }
+      .hero-title {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 100vh;
+        margin-left: 8vw;
+        margin-top: -2vh;
+      }
+      .line1 {
+        font-size: 3.2em;
+        color: #243668;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        font-family: "Montserrat", Arial, sans-serif;
+        margin: 0;
+        line-height: 1.05;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .design-badge {
+        display: inline-block;
+        border: 2.5px solid var(--main-blue);
+        border-radius: 2em;
+        font-size: 0.62em;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-weight: 700;
+        padding: 8px 28px 8px 28px;
+        color: var(--main-blue);
+        background: transparent;
+        margin-left: 16px;
+        letter-spacing: 0.01em;
+      }
+      .line2 {
+        font-size: 5.7em;
+        font-weight: 900;
+        color: var(--main-blue);
+        line-height: 1.01;
+        margin: 0 0 0.05em 0;
+        font-family: "Montserrat", Arial, sans-serif;
+        letter-spacing: 0.01em;
+        word-break: break-word;
+      }
+      .hero-author-btn {
+        margin-top: 48px;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-weight: 500;
+        color: var(--main-blue);
+        border: 2px solid var(--main-blue);
+        border-radius: 32px;
+        background: rgba(255, 255, 255, 0.85);
+        font-size: 1.18em;
+        padding: 8px 46px;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 1px 6px #3f69d20f;
+        transition: background 0.14s, color 0.13s;
+        display: inline-block;
+      }
+      .hero-author-btn:hover {
+        background: var(--main-blue);
+        color: #fff;
+      }
+      .team-intro {
+        position: absolute;
+        top: 50%;
+        right: 7vw;
+        transform: translateY(-39%);
+        max-width: 415px;
+        padding: 8px 2vw 8px 2vw;
+        font-size: 1.13em;
+        line-height: 1.57;
+        color: #fff;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-weight: 500;
+        text-align: right;
+        z-index: 1050;
+        opacity: 0.96;
+        background: none;
+      }
+      @media (max-width: 1200px) {
+        .team-intro {
+          right: 4vw;
+          max-width: 98vw;
+          font-size: 1em;
+          padding: 2px 2vw 2px 2vw;
+        }
+      }
+      @media (max-width: 900px) {
+        .team-intro {
+          font-size: 0.97em;
+          max-width: 97vw;
+          padding: 0 6vw 0 6vw;
+          right: 0;
+          top: 58%;
+          transform: translateY(-56%);
+        }
+        .hero-title {
+          margin-left: 0vw;
+        }
+      }
+      @media (max-width: 700px) {
+        .team-intro {
+          font-size: 0.9em;
+          max-width: 99vw;
+          text-align: center;
+          top: 66%;
+          right: 0;
+          transform: translateY(-79%);
+        }
+      }
+
+      .project-title {
+        font-size: 2.8em;
+        margin-bottom: 18px;
+        color: var(--main-blue);
+        font-family: "Lora", serif;
+        font-weight: 900;
+        text-align: center;
+      }
+      .project-blocks {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        margin: 0 auto;
+      }
+      .project-section-header {
+        font-size: 1.34em;
+        font-family: "Lora", serif;
+        font-weight: 900;
+        color: var(--main-blue);
+        margin-bottom: 14px;
+        margin-top: 0;
+        letter-spacing: 0.03em;
+        text-align: left;
+        width: 100%;
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .project-desc-clean {
+        background: var(--box-bg);
+        border-radius: 22px;
+        border: 1.4px solid var(--border-card);
+        box-shadow: var(--box-shadow);
+        padding: 48px 60px 38px 60px;
+        max-width: 980px;
+        width: 95vw;
+        margin: 0 auto;
+        font-size: 1.18em;
+        color: #222f41;
+        font-weight: 530;
+        font-family: "Montserrat", Arial, sans-serif;
+        text-align: justify;
+        line-height: 1.7;
+        transition: box-shadow 0.2s;
+      }
+      .project-goal-clean {
+        background: #f5f6fa;
+        border-radius: 22px;
+        border: 1.3px solid var(--border-card);
+        box-shadow: 0 3px 22px #4977eb13;
+        padding: 38px 60px 38px 60px;
+        max-width: 980px;
+        width: 95vw;
+        margin: 0 auto;
+        font-size: 1.09em;
+        color: #243563;
+        font-family: "Montserrat", Arial, sans-serif;
+        font-weight: 560;
+        text-align: justify;
+        line-height: 1.7;
+        transition: box-shadow 0.2s;
+      }
+      @media (max-width: 1100px) {
+        .project-desc-clean,
+        .project-goal-clean,
+        .project-section-header {
+          max-width: 97vw;
+          padding: 20px 7vw;
+        }
+      }
+      @media (max-width: 700px) {
+        .project-desc-clean,
+        .project-goal-clean,
+        .project-section-header {
+          font-size: 1em;
+          padding: 12px 2vw;
+        }
+      }
+      .container-main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100vw;
+        box-sizing: border-box;
+        background: var(--light-blue);
+        padding: 0 0 64px 0;
+        gap: 16px;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: var(--light-blue);
+      }
+      .members-section-header {
+        width: 100vw;
+        text-align: center;
+        font-family: "Lora", serif;
+        color: var(--main-blue);
+        font-size: 2.2em;
+        font-weight: 900;
+        margin: 40px 0 30px 0;
+        letter-spacing: 0.01em;
+      }
+      .members-cardgrid {
+        display: flex;
+        gap: 36px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        width: 100vw;
+        margin-bottom: 32px;
+      }
+      .member-profile-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 22px #4977eb12;
+        width: 305px;
+        max-width: 93vw;
+        min-height: 407px;
+        margin: 0 0 18px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.14s, box-shadow 0.17s;
+        padding: 36px 20px 24px 20px;
+        box-sizing: border-box;
+        border: 2.5px solid #e2eafb;
+      }
+      .member-profile-card:hover {
+        transform: translateY(-7px) scale(1.03);
+        box-shadow: 0 8px 40px #4977eb23;
+        border-color: #4977eb44;
+      }
+      .member-card-photo {
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #e3eefd;
+        border: 5px solid #4977eb;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 13px #4977eb12;
+      }
+      .member-card-name {
+        font-size: 1.32em;
+        font-weight: 900;
+        color: #4977eb;
+        margin-bottom: 0.14em;
+        text-align: center;
+        font-family: "Montserrat", Arial, sans-serif;
+      }
+      .member-card-role {
+        font-size: 1.08em;
+        color: #243668;
+        font-family: "Lora", serif;
+        font-weight: 700;
+        margin-bottom: 1em;
+        text-align: center;
+      }
+      .member-card-motto {
+        font-size: 1.02em;
+        color: #283c55;
+        font-family: "Montserrat", Arial, sans-serif;
+        text-align: center;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+      .app-link-btn {
+        display: block;
+        margin: 38px auto 0 auto;
+        background: var(--main-blue);
+        color: #fff;
+        font-size: 1.13em;
+        font-weight: 700;
+        border: none;
+        border-radius: 13px;
+        padding: 0.68em 0;
+        box-shadow: 0 2px 7px #4977eb22;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.14s;
+        cursor: pointer;
+        width: 240px;
+        max-width: 94vw;
+        letter-spacing: 0.01em;
+      }
+      .app-link-btn:hover {
+        background: #3359b5;
+        color: #ecf5ff;
+      }
+      .footer {
+        width: 100vw;
+        background: #243668;
+        color: #fff;
+        font-size: 1em;
+        text-align: center;
+        padding: 16px 0 12px 0;
+        font-family: "Lora", serif;
+        letter-spacing: 0.025em;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        border-radius: 0 0 16px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#section-project">Project</a>
+      <a class="nav-link" href="#section-members">Members</a>
+    </nav>
+
+    <section class="hero-section" id="home">
+      <div class="hero-title">
+        <div class="line1">
+          Team
+          <span class="design-badge">Project</span>
+        </div>
+        <div class="line2">Innovators</div>
+        <a class="hero-author-btn" href="#">RANDOM QUOTE GENERATOR</a>
+      </div>
+
+      <div class="team-intro">
+        <p>
+          Welcome to Team Innovators! A collective of passionate creators driven
+          by curiosity and a spirit of discovery. Our team thrives on
+          transforming inspired ideas into real-world digital experiences that
+          make a difference. We believe technology should uplift, empower, and
+          connect people—and we strive to deliver solutions that delight users
+          and have a positive impact. Explore our work and meet the minds who
+          shape our vision; together, we’re redefining what a dedicated,
+          forward-thinking tech team can accomplish!
+        </p>
+      </div>
+    </section>
+    <div class="container-main">
+      <section id="section-project">
+        <div class="project-title">Project</div>
+        <div class="project-blocks">
+          <div style="width: 100%">
+            <div class="project-section-header">Description</div>
+            <div class="project-desc-clean">
+              Our Random Quote Generator is an interactive web application
+              designed to inspire users with fresh quotes at the click of a
+              button. Built with HTML, CSS, and JavaScripT the app seamlessly
+              integrates with a public Quotes API to fetch meaningful,
+              motivational, and thought-provoking quotes from a variety of
+              categories. With a responsive and user-friendly interface, the app
+              ensures seamless performance across all devices, providing a
+              smooth and enjoyable experience. Its minimalist design focuses on
+              clear readability, allowing users to absorb quotes effortlessly
+              without distraction.
+            </div>
+          </div>
+          <div style="width: 100%">
+            <div class="project-section-header">Main Goal</div>
+            <div class="project-goal-clean">
+              1. Provide instant inspiration and motivation with a simple,
+              user-friendly interface that requires minimal effort—just a click
+              to get a new quote.<br /><br />
+              2. Encourage daily reflection and personal growth by exposing
+              users to diverse, meaningful quotes from a wide range of authors,
+              cultures, and perspectives.<br /><br />
+              3. Facilitate emotional well-being by delivering uplifting,
+              thoughtful content that can brighten moods and improve mental
+              outlook.<br /><br />
+              4. Ensure accessibility and smooth performance across devices
+              through responsive design and offline support, making inspiration
+              available anytime, anywhere.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-members">
+        <div class="members-section-header">Members</div>
+        <div class="members-cardgrid">
+          <div class="member-profile-card">
+            <img
+              src="member1.jpg"
+              class="member-card-photo"
+              alt="Alex Dela Cruz"
+              onerror="this.src='https://via.placeholder.com/160?text=No+Photo';"
+            />
+            <div class="member-card-name">Gleslimie Binag</div>
+            <div class="member-card-role">Team Leader / Frontend</div>
+            <div class="member-card-motto">
+              Coordinates and crafts seamless UI for everyone.<br />
+              Specialist in user experience and overall coordination.
+            </div>
+          </div>
+          <div class="member-profile-card">
+            <img
+              src="member2.jpg"
+              class="member-card-photo"
+              alt="Jamie Santos"
+              onerror="this.src='https://via.placeholder.com/160?text=No+Photo';"
+            />
+            <div class="member-card-name">Emelly Damulo</div>
+            <div class="member-card-role">Backend</div>
+            <div class="member-card-motto">
+              Integrates APIs, optimizes JavaScript,<br />
+              and keeps the data flowing smoothly every day.
+            </div>
+          </div>
+          <div class="member-profile-card">
+            <img
+              src="member3.jpg"
+              class="member-card-photo"
+              alt="Casey Robles"
+              onerror="this.src='https://via.placeholder.com/160?text=No+Photo';"
+            />
+            <div class="member-card-name">Karl Nino Simbajon</div>
+            <div class="member-card-role">API Specialist/Designer</div>
+            <div class="member-card-motto">
+              Turns ideas into polished, friendly user experiences<br />
+              and ensures quality control throughout.
+            </div>
+          </div>
+        </div>
+        <a href="app.html" class="app-link-btn">Go to Our App &rarr;</a>
+      </section>
+    </div>
+    <div class="footer">
+      &copy; 2025 Team Innovators. Crafted with excellence and creativity.
+    </div>
+    <script>
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+
+          const target = document.querySelector(link.getAttribute("href"));
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
